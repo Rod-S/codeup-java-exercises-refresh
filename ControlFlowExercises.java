@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ControlFlowExercises {
 
     public static void main(String[] args) {
@@ -29,19 +31,40 @@ public class ControlFlowExercises {
 //        }
 
         //fizzbuzz
-        int j=1;
-        do {
-            if (j % 3 == 0 && j % 5 == 0) {
-                System.out.println("FizzBuzz");
-            } else if (j % 3 == 0) {
-                System.out.println("Fizz");
-            } else if (j % 5 == 0) {
-                System.out.println("Buzz");
-            } else {
-                System.out.println(j);
-            }
-            j++;
-        }
-        while (j<=100);
+//        int j=1;
+//        do {
+//            if (j % 3 == 0 && j % 5 == 0) {
+//                System.out.println("FizzBuzz");
+//            } else if (j % 3 == 0) {
+//                System.out.println("Fizz");
+//            } else if (j % 5 == 0) {
+//                System.out.println("Buzz");
+//            } else {
+//                System.out.println(j);
+//            }
+//            j++;
+//        }
+//        while (j<=100);
     }
+
+        Scanner sc = new Scanner(System.in);
+        boolean userContinue = true;
+        do {
+            System.out.printf("What number would you like to go up to?\n");
+            int userInt = sc.nextInt();
+            String leftAlignFormat = "%-8d | %-9d | %-4d %n";
+            System.out.printf("Here is your table!%n");
+            System.out.format("number   | squared   | cubed   %n");
+            System.out.format("------   | -------   | -----   %n");
+            for (int i = 1; i <= userInt; i++) {
+                System.out.format(leftAlignFormat, i, i * i, i * i * i);
+            }
+
+            System.out.print("Would you like to continue (y/n)");
+            String userResponse = sc.next();
+            if (!userResponse.equalsIgnoreCase("y")) {
+                 userContinue = false;
+            }
+        } while (userContinue);
+
 }
